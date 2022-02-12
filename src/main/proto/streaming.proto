@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "de.metamorphant.examples.grpcticker";
+option java_outer_classname = "TickerProto";
+
+package ticker;
+
+service StreamingTicker {
+  rpc subscribeTicker (TickRequest) returns (stream TickReply) {}
+}
+
+message TickRequest {
+}
+
+message TickReply {
+  string tick = 1;
+}
